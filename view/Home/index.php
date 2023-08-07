@@ -78,7 +78,11 @@ foreach ($task->getAll() as $data) {
 <?php
 $task->validar();
 ?>
-
+<section>
+<footer style="text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ccc;">
+<a href="https://github.com/Javier706"><img src="../../img/github.png" alt="Github" width="30" ></a>
+</footer>
+</section>
 <script src="../js/Validacion.js"></script> 
 <script>    history.replaceState(null,null,location.pathname)</script>
 </body>

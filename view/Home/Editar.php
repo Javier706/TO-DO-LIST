@@ -34,6 +34,11 @@ $Data = $tasks->getTasksById($_GET['id']);
 <input type="submit" class="btn btn-primary" name="enviar">
 
 </form>
+
+<footer style="text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ccc;">
+    <p>@Javier706</p>
+    <p>¡Gracias por visitar mi perfil!</p>
+</footer>
 </body>
 <script src="../js/Validacion.js"></script> 
 <?php

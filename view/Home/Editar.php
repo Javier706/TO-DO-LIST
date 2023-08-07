@@ -23,7 +23,7 @@ $Data = $tasks->getTasksById($_GET['id']);
        <br>
 <form action="EditForm.php?id=<?php echo $_GET['id'];?>" autocomplete="off" onsubmit="return validar();" class="card cpl-md-6 p-3" method="POST">
 <div class="mb-3">
-<label class="form-label text-white">Tarea</label>
+<label class="form-label ">Tarea</label>
         <input type="text" class="form-control" tabindex="-1" id="titulo" name="titulo" value="<?php echo $Data['titulo']?>">
   </div>
   <div class="mb-3">

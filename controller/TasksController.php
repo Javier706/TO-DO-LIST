@@ -16,8 +16,10 @@ class TasksController extends Tasks
         
       
         if (
-            !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
-            || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)
+            !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\d\s]+$/", $this->titulo)
+            || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\d\s]+$/", $this->descripcion)
+             
+            
         ) {
             echo "<script>alert('los campos deben seguir el formato especificado')</script>";
         } else {
@@ -49,8 +51,9 @@ class TasksController extends Tasks
             $this->id_task = $_GET['id'];
 
             if (
-                !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
-                || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)
+                !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\d\s]+$/", $this->titulo)
+                || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\d\s]+$/", $this->descripcion)
+                
             ) {
                 return true; // Manejar el caso de validación no exitosa
             } else {

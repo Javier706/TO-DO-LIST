@@ -8,4 +8,7 @@ db/todolist.sql
 
 @Javier706
 ## CAPTURAS
+Home Page
 ![Alt text](Screenshot/Home.png)
+Editar
+![Alt text](Screenshot/Editar.png)

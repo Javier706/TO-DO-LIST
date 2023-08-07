@@ -2,7 +2,7 @@
 
 class Conexion {
     protected $conexion;
-    protected $dbname =  "to-do-list";
+    protected $dbname =  "todolist";
     private $host = "localhost";
     private $username = "root";
     private $password = "";

@@ -34,13 +34,13 @@ class Tasks extends Conexion{
         $query->execute([":id" => $id_task]);
     }
     
-    public function update($id_task)
+    public function update()
     {
         $query = $this->conexion->prepare("UPDATE tasks SET titulo = :titulo, descripcion = :descripcion WHERE id = :id");
         $query->execute([
             ":titulo" => $this->titulo,
             ":descripcion" => $this->descripcion,
-            ":id" => $id_task
+            ":id" => $this->id_task
         ]);
     }
 

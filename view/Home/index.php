@@ -9,14 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://kit.fontawesome.com/71a06353df.css" crossorigin="anonymous">
-
+ 
     <script src="../js/sweetalert.min.js"></script>
+    <style>
+    body {
+      background-image: url('../../img/bg2.jpg'); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-attachment: fixed; 
+    }
+  </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-3">To-Do List <img src="../../img/checkpng.png" width="60"></h1>
-        <h6>OVERALL PRODUCTIVITY</h6>
+        <h1 class="mb-3 text-white">To-Do List <img src="../../img/checkpng.png" width="60"></h1>
+        <h6 class="text-white">OVERALL PRODUCTIVITY</h6>
        <br>
         
 <form   autocomplete="off" onsubmit="return validar();" class="card cpl-md-6 p-3" method="POST">
@@ -34,7 +41,7 @@
 
      
 
-        <h2 class="mt-5">Tareas</h2>
+        <h2 class="mt-5 text-white">Tareas</h2>
         <table class="table table-striped mt-5" id="tabla">
       <thead>
         <tr>

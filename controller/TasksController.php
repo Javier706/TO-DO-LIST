@@ -3,55 +3,62 @@ require_once("model/Tasks.php");
 
 class TasksController extends Tasks
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function validar()
     {
-    if (isset($_POST['titulo']) && isset($_POST['descripcion']) &&isset($_POST['completado']) &&isset($_POST['aceptar'])) {
-       $this->titulo= $_POST['titulo'];
-       $this->descripcion=  $_POST['descripcion'];
-       $this->completado= $_POST['completado'];
-       if (
-        !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
-        || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)){
+      if (isset($_POST['titulo']) && isset($_POST['descripcion'])&&isset($_POST['enviar'])) {
+        $this->titulo=$_POST['titulo'];
+        $this->descripcion = $_POST['descripcion'];
+        
+      
+        if (
+            !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
+            || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)
+        ) {
             echo "<script>alert('los campos deben seguir el formato especificado')</script>";
-        }
-    
-    }else {
-        if ($this->findTask()->rowCount() == 0) {
-             $this->store();
-
-            ?>
-            <script>
-                swal({
-                    title: "!Tarea Creada!",
-                    text: "Datos insertados correctamente!",
+        } else {
+            if ($this->findTask()->rowCount() == 0) {
+                $this->store();
+                echo '
+                <script>swal({
+                    title: "Se ha creado la tarea!",
+                    text: "La tarea se ha creado",
                     icon: "success",
                     button: {
-                        text: "ok!"
-                    },
-                })
-            </script>
-            <?php
-        } 
-    }
-}
-
-    public function actualizar()
-    {
-        if (isset($_POST['titulo']) && isset($_POST['descripcion']) &&isset($_POST['completado']) &&isset($_POST['aceptar'])) {
-            $this->titulo= $_POST['titulo'];
-            $this->descripcion=  $_POST['descripcion'];
-            $this->completado= $_POST['completado'];
-            if (
-             !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
-             || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)){
-                return 1;
-            } else {
-                $this->update();
-
-                return 0;
+                    text: "ok!"
+                },
+                });
+                </script>';
             }
-        } else {
-            return 1;
-        }
+      }
+
+   
     }
+    
+    }
+
+    // public function actualizar()
+    // {
+    //     if (isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['completado']) && isset($_POST['aceptar'])) {
+    //         $this->titulo = $_POST['titulo'];
+    //         $this->descripcion = $_POST['descripcion'];
+
+    //         if (
+    //             !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->titulo)
+    //             || !preg_match("/^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ]*$/", $this->descripcion)
+    //         ) {
+    //             return true; // Manejar el caso de validación no exitosa
+    //         } else {
+    //             $this->update();
+    //             return false; // Manejar el caso de actualización exitosa
+    //         }
+    //     } else {
+    //         return true; // Manejar el caso de datos faltantes
+    //     }
+    // }
 }
+?>

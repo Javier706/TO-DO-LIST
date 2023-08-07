@@ -6,7 +6,7 @@ class Tasks extends Conexion{
     public $id_task;
     public $titulo;
     public $descripcion;
-    public $completado;
+    
 
     public function __construct()
     {
@@ -15,11 +15,10 @@ class Tasks extends Conexion{
 
     public function store()
     {
-        $query = $this->conexion->prepare("INSERT INTO tasks (titulo,descripcion,completado) VALUES (:titulo,:descripcion,:completado)");
+        $query = $this->conexion->prepare("INSERT INTO tasks (titulo,descripcion) VALUES (:titulo,:descripcion)");
         $query->execute([
             ":titulo"=>$this->titulo,
-            ":descripcion"=>$this->descripcion,
-            ":completado"=>$this->completado
+            ":descripcion"=>$this->descripcion
         ]);
     }
     public function getAll() {
@@ -30,19 +29,18 @@ class Tasks extends Conexion{
 
         return $tasks;
     }
-    public function delete() {
+    public function delete($id_task) {
         $query = $this->conexion->prepare("DELETE FROM tasks WHERE id = :id");
-        $query->execute([":id" => $this->id_task]);
+        $query->execute([":id" => $id_task]);
     }
     
-    public function update()
+    public function update($id_task)
     {
-        $query = $this->conexion->prepare("UPDATE tasks SET titulo = :titulo, descripcion = :descripcion, completado = :completado WHERE id = :id");
+        $query = $this->conexion->prepare("UPDATE tasks SET titulo = :titulo, descripcion = :descripcion WHERE id = :id");
         $query->execute([
             ":titulo" => $this->titulo,
             ":descripcion" => $this->descripcion,
-            ":completado" => $this->completado,
-            ":id" => $this->id_task
+            ":id" => $id_task
         ]);
     }
 

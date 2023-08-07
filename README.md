@@ -7,4 +7,5 @@ db/todolist.sql
 2-Disfrutar de la app.
 
 @Javier706
+## CAPTURAS
 ![Alt text](Screenshot/Home.png)
